@@ -1,16 +1,24 @@
 func majorityElement(nums []int) int {
-    numCount := map[int]int{}
+    currElement := 0
+    currCount := 0
     majorityElement := 0
-    for _, num := range nums {
-        count := numCount[num]
-        count++
-        numCount[num] = count
+    majorityCount := 0
 
-        if count > numCount[majorityElement] {
-            majorityElement = num
+    slices.Sort(nums)
+    for _, num := range nums {
+        if (currElement == num) {
+            currCount++
+        } else {
+            currElement = num
+            currCount = 1
         }
 
-        if numCount[majorityElement] > (len(nums) / 2) {
+        if majorityCount < currCount {
+            majorityElement = currElement
+            majorityCount = currCount
+        }
+
+        if majorityCount > (len(nums) / 2) {
             break
         }
     }
