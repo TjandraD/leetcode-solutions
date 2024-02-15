@@ -1,6 +1,7 @@
 // 1. Sort the array with asc order
-// 2. Loop through nums from the last to the third items
-// 3. If currItem < prefixSum, return currItem
+// 2. Loop through the nums, sum the total
+// 3. Loop through nums from the last to the third items
+// 4. If currItem < sumSides, return currItem
 
 func largestPerimeter(nums []int) int64 {
     slices.Sort(nums)
