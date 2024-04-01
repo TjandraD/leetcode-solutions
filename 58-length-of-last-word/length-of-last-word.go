@@ -1,5 +1,15 @@
 func lengthOfLastWord(s string) int {
-    wordsList := strings.Fields(s)
-    lastWord := wordsList[len(wordsList)-1]
-    return len(lastWord)
+    prevChar := ' '
+    len := 0
+    for _, stringChar := range s {
+        if prevChar == ' ' && stringChar != ' ' {
+            len = 1
+        } else if stringChar != ' ' {
+            len++
+        }
+
+        prevChar = stringChar
+    }
+
+    return len
 }
